@@ -16,14 +16,18 @@ document.getElementById("file").addEventListener("change", function (event) {
   console.log("change on input#file triggered");
   var file = this.files[0],
     fileURL = blob.createObjectURL(file);
-  console.log(file);
-  console.log("File name: " + file.name);
-  console.log("File type: " + file.type);
+
   console.log("File BlobURL: " + fileURL);
-  // document.getElementById("filename")=file.name
-  // document.getElementById("filetype")=file.type
+  const filename = file.name;
+  const filetype = file.type;
   document.getElementById("audio").src = fileURL;
 });
+
+function handleSubmit() {
+  document.getElementById("filename").innerHTML = filename;
+  document.getElementById("filetype").innerHTML = filetype;
+  document.getElementById("result").innerText = "SLI detected";
+}
 window.addEventListener("DOMContentLoaded", (event) => {
   // Navbar shrink function
   var navbarShrink = function () {
